@@ -1,4 +1,4 @@
-package POO;
+package poo;
 
 public class Conta {
 	private String numero;
@@ -20,13 +20,13 @@ public class Conta {
 		if (saldo > 0) {
 			this.saldo = saldo;
 		} else {
-			System.out.println("Não é possível saldo negativo!");
+			System.out.println("Nï¿½o ï¿½ possï¿½vel saldo negativo!");
 		}
 	}
 	
 	public void sacar (double quantidade) {
 		if (quantidade > this.saldo) {
-			System.out.println("Não posso sacar fora do limite!");
+			System.out.println("Nï¿½o posso sacar fora do limite!");
 		} else {
 			this.saldo -= quantidade;
 		}
