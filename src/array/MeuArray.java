@@ -59,11 +59,10 @@ public class MeuArray {
 	
 	void changePosition () {
 		int[] aux = new int[this.array.length];
+		int a = 0;
 
-		for (int j = 0; j < aux.length; j++) {
-			for (int i = this.array.length - 1; i >= 0; i--) {
-				aux[j] = this.array[i];
-			}
+		for (int j = aux.length - 1; j >= 0; j--) {
+			aux[a++] = this.array[j];
 		}
 		
 		System.out.print("[");
