@@ -3,6 +3,25 @@ package poo;
 public class Main {
 
 	public static void main(String[] args) {
+		Conta cb, cp;
+		
+		cb = new ContaBonificada("123.45-6", 0);
+		cp = new Poupanca("654.32-1", 0);
+		
+		cb.creditar(500);
+		cp.creditar(200);
+		
+		System.out.println(cb);
+		System.out.println(cp + "\n");
+		
+		((ContaBonificada) cb).renderBonus();
+		((Poupanca) cp).renderJuros();
+		
+		System.out.println(cb);
+		System.out.println(cp + "\n");
+		
+		
+/** //	Aula 1
 		Conta conta1 = new Conta();
 		Conta conta2 = new Conta();
 		
@@ -29,6 +48,7 @@ public class Main {
 		System.out.println("Saldo ap�s transferir 1000 da conta2 para a conta1");
 		System.out.println("Saldo conta1: " + conta1.getSaldo());
 		System.out.println("Sando conta2: " + conta2.getSaldo() + "\n");
+*/
 	}
 
 }
