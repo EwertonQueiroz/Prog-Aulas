@@ -51,4 +51,8 @@ public class Conta {
 			this.sacar(qtd);
 		}
 	}
+	
+	public String toString () {
+		return "Conta Poupança:\n\t[Número: " + this.getNumero() + ", Saldo: R$" + this.getSaldo() + "]";
+	}
 }

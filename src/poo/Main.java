@@ -3,7 +3,33 @@ package poo;
 public class Main {
 
 	public static void main(String[] args) {
-		Conta cb, cp;
+		RepositorioContasArray repo = new RepositorioContasArray();
+		
+		Conta conta1 = new ContaBonificada("123456", 0);
+		Conta conta2 = new Poupanca("654321", 0);
+		Conta conta3 = new Conta("123456", 200);
+		Conta conta5, conta6;
+		
+		repo.inserir(conta1);
+		repo.inserir(conta2);
+		
+		System.out.println("A conta 123456 existe?\n\t" + repo.existe("123456"));
+		System.out.println("A conta 542671 existe?\n\t" + repo.existe("542671"));
+		
+		conta5 = repo.procurar("654321");
+		conta6 = repo.procurar("542671");
+		
+		System.out.println("Conta 5:\n\t" + conta5);
+		System.out.println("Conta 6:\n\t" + conta6);
+		
+		repo.atualizar(conta3);
+		System.out.println("Atualizar:\n\t" + repo.procurar("123456"));
+		
+		System.out.println(repo);
+		
+		
+/** //	Aula 2 - Repositórios
+ * 		Conta cb, cp;
 		
 		cb = new ContaBonificada("123.45-6", 0);
 		cp = new Poupanca("654.32-1", 0);
@@ -19,9 +45,9 @@ public class Main {
 		
 		System.out.println(cb);
 		System.out.println(cp + "\n");
+*/		
 		
-		
-/** //	Aula 1
+/** //	Aula 1 - Herança/Polimorfismo
 		Conta conta1 = new Conta();
 		Conta conta2 = new Conta();
 		
