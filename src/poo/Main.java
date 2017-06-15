@@ -5,10 +5,10 @@ public class Main {
 	public static void main(String[] args) {
 		RepositorioContasArray repo = new RepositorioContasArray();
 		
-		Conta conta1 = new ContaBonificada("123456", 0);
-		Conta conta2 = new Poupanca("654321", 0);
-		Conta conta3 = new Conta("123456", 200);
-		Conta conta5, conta6;
+		ContaAbstrata conta1 = new ContaBonificada("123456", 0);
+		ContaAbstrata conta2 = new Poupanca("654321", 0);
+		ContaAbstrata conta3 = new Conta("123456", 200);
+		ContaAbstrata conta5, conta6;
 		
 		repo.inserir(conta1);
 		repo.inserir(conta2);

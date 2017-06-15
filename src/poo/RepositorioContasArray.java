@@ -1,8 +1,8 @@
 package poo;
 
-public class RepositorioContasArray {
+public class RepositorioContasArray implements RepositorioContas{
 	
-	private Conta[] contas;
+	private ContaAbstrata[] contas;
 	private int indice;
 	
 	private static final int TAMANHO = 100;
@@ -25,12 +25,12 @@ public class RepositorioContasArray {
 		return aux;
 	}
 	
-	public void inserir (Conta conta) {
+	public void inserir (ContaAbstrata conta) {
 		this.contas[this.indice++] = conta;
 	}
 	
-	public Conta procurar (String numero) {
-		Conta aux = null;
+	public ContaAbstrata procurar (String numero) {
+		ContaAbstrata aux = null;
 		
 		for (int i = 0; i < this.indice; i++) {
 			//System.out.println(conta.getNumero());
@@ -48,7 +48,7 @@ public class RepositorioContasArray {
 		this.contas[aux] = null;
 	}
 	
-	public void atualizar (Conta conta) {
+	public void atualizar (ContaAbstrata conta) {
 		int aux = this.getIndice(conta.getNumero());
 		if (aux != -1)
 			this.contas[aux] = conta;
