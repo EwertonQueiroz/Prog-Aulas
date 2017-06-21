@@ -5,27 +5,29 @@ public class Main {
 	public static void main(String[] args) {
 		RepositorioContasArray repo = new RepositorioContasArray();
 		
-		ContaAbstrata conta1 = new ContaBonificada("123456", 0);
-		ContaAbstrata conta2 = new Poupanca("654321", 0);
-		ContaAbstrata conta3 = new Conta("123456", 200);
-		ContaAbstrata conta5, conta6;
+		ContaAbstrata conta1 = new ContaBonificada("123456", 110);
+		ContaAbstrata conta2 = new Poupanca("654321", 5000);
+//		ContaAbstrata conta3 = new Conta("123456", 200);
+//		ContaAbstrata conta5, conta6;
 		
 		repo.inserir(conta1);
 		repo.inserir(conta2);
 		
-		System.out.println("A conta 123456 existe?\n\t" + repo.existe("123456"));
-		System.out.println("A conta 542671 existe?\n\t" + repo.existe("542671"));
+//		System.out.println("A conta 123456 existe?\n\t" + repo.existe("123456"));
+//		System.out.println("A conta 542671 existe?\n\t" + repo.existe("542671"));
+//		
+//		conta5 = repo.procurar("654321");
+//		conta6 = repo.procurar("542671");
+//		
+//		System.out.println("Conta 5:\n\t" + conta5);
+//		System.out.println("Conta 6:\n\t" + conta6);
+//		
+//		repo.atualizar(conta3);
+//		System.out.println("Atualizar:\n\t" + repo.procurar("123456"));
+//		
+//		System.out.println(repo);
 		
-		conta5 = repo.procurar("654321");
-		conta6 = repo.procurar("542671");
-		
-		System.out.println("Conta 5:\n\t" + conta5);
-		System.out.println("Conta 6:\n\t" + conta6);
-		
-		repo.atualizar(conta3);
-		System.out.println("Atualizar:\n\t" + repo.procurar("123456"));
-		
-		System.out.println(repo);
+		System.out.println(RepositorioContasArray.getSaldo_total());
 		
 		
 /** //	Aula 2 - Repositórios

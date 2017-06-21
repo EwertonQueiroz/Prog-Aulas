@@ -4,6 +4,7 @@ public class RepositorioContasArray implements RepositorioContas{
 	
 	private ContaAbstrata[] contas;
 	private int indice;
+	private static double saldo_total;
 	
 	private static final int TAMANHO = 100;
 	
@@ -25,8 +26,13 @@ public class RepositorioContasArray implements RepositorioContas{
 		return aux;
 	}
 	
+	public static double getSaldo_total () {
+		return RepositorioContasArray.saldo_total;
+	}
+	
 	public void inserir (ContaAbstrata conta) {
 		this.contas[this.indice++] = conta;
+		RepositorioContasArray.saldo_total = RepositorioContasArray.saldo_total + conta.getSaldo();
 	}
 	
 	public ContaAbstrata procurar (String numero) {
