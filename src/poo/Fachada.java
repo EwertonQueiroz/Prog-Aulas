@@ -4,9 +4,9 @@ public class Fachada {
 	private CadastroConta contas;
 	private static Fachada instance;
 	
-	public Fachada () {
+	private Fachada () {
 		RepositorioContas repositorioContas = new RepositorioContasArray();
-		contas = new CadastroConta(repositorioContas);
+		this.contas = new CadastroConta(repositorioContas);
 	}
 	
 	public static Fachada getInstance () {

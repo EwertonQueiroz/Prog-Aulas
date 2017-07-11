@@ -9,7 +9,7 @@ public class CadastroConta {
 
 	public void inserir (ContaAbstrata conta) {
 		if (conta != null)
-			if (this.contas.existe(conta.getNumero()))
+			if (!(this.contas.existe(conta.getNumero())))
 				this.contas.inserir(conta);
 			else
 				System.out.println("Conta já cadastrada!");
