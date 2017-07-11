@@ -15,12 +15,11 @@ public class RepositorioListaContas implements RepositorioContas {
 	public void inserir (ContaAbstrata conta) {
 		if (this.conta == null) {
 			this.conta = conta;
-			proximo = new RepositorioListaContas();
+			this.proximo = new RepositorioListaContas();
 		}
 		
-		else {
+		else
 			this.proximo.inserir(conta);
-		}
 	}
 
 	@Override
@@ -61,6 +60,7 @@ public class RepositorioListaContas implements RepositorioContas {
 				this.remover(conta.getNumero());
 				this.proximo.inserir(aux);
 			}
+		
 		else
 			System.out.println("Conta inválida.");
 	}
@@ -74,7 +74,7 @@ public class RepositorioListaContas implements RepositorioContas {
 		else if (this.conta.getNumero() == numero)
 			return true;
 		
-		return this.getProximo().existe(numero);
+		return this.proximo.existe(numero);
 	}
 	
 }
