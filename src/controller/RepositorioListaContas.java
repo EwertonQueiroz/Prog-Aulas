@@ -1,6 +1,5 @@
 package controller;
 
-import model.Conta;
 import model.ContaAbstrata;
 
 public class RepositorioListaContas implements RepositorioContas {
@@ -26,56 +25,56 @@ public class RepositorioListaContas implements RepositorioContas {
 
 	@Override
 	public ContaAbstrata procurar (String numero) {
-		ContaAbstrata aux = null;
+		if (this.conta == null)
+			return null;
 		
-		while (this.getProximo().conta != null) {
-			if (this.conta.getNumero() == numero) {
-				aux = this.conta;
-				break;
-			}
-		}
+		else if (this.conta.getNumero() == numero)
+			return this.conta;
 		
-		return aux;
-		
-//		if (this.proximo.getProximo().conta == null)
-//		return null;
-//	
-//	else if (this.conta.getNumero() == numero)
-//		return this.conta;
-//	
-//	return this.procurar(numero);
+		return this.proximo.procurar(numero);
 	}
 
 	@Override
 	public void remover (String numero) {
-		while (this.getProximo().conta != null) {
-			if (this.conta.getNumero() == numero) {
-				this.conta = null;
+		if (this.existe(numero))
+			if (this.conta == null)
+				return;
+			
+			/** Aqui vai dar erro quando tiver numa lista grande pois o "proximo" do anterior não está sendo atualizado,
+			 *  logo, após uma remoção, haverá um elemento nulo no meio da lista, dando origem a uma lista que pode
+			 *  ser acessada pela cabeça e outra que está inacessível.
+			 */
+			else if (this.conta.getNumero() == numero) {
+				this.conta = this.proximo.conta;
+//				this.conta = null;
 			}
-		}
+		
+		else
+			this.proximo.remover(numero);
 	}
 
 	@Override
 	public void atualizar (ContaAbstrata conta) {
-		if (this.proximo.existe(conta.getNumero())) {
-			ContaAbstrata aux = this.proximo.procurar(conta.getNumero());
-			this.remover(conta.getNumero());
-			this.proximo.inserir(aux);
-		}
+		if (conta != null)
+			if (this.existe(conta.getNumero())) {
+				ContaAbstrata aux = this.procurar(conta.getNumero());
+				this.remover(conta.getNumero());
+				this.proximo.inserir(aux);
+			}
+		else
+			System.out.println("Conta inválida.");
 	}
 
 	@Override
 	public boolean existe(String numero) {
+		
 		if (this.conta == null)
 			return false;
 
-		if (this.conta.getNumero() == numero)
+		else if (this.conta.getNumero() == numero)
 			return true;
 		
-		if (this.getProximo().conta != null)
-			return this.getProximo().existe(numero);
-		
-		return false;
+		return this.getProximo().existe(numero);
 	}
 	
 }

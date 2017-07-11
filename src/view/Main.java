@@ -1,6 +1,5 @@
 package view;
 
-import controller.RepositorioContasArray;
 import controller.RepositorioListaContas;
 import model.Conta;
 import model.ContaAbstrata;
@@ -29,12 +28,13 @@ public class Main {
 		System.out.println("Conta 5:\n\t" + conta5);
 		System.out.println("Conta 6:\n\t" + conta6);
 //		
+		System.out.println("Antes de atualizar:\n\t" + repo.procurar("123456"));
 		repo.atualizar(conta3);
-		System.out.println("Atualizar:\n\t" + repo.procurar("123456"));
+		System.out.println("Atualizado:\n\t" + repo.procurar("123456"));
 //		
 //		System.out.println(repo);
 		
-		System.out.println(RepositorioContasArray.getSaldo_total());
+//		System.out.println(RepositorioContasArray.getSaldo_total());
 		
 		
 /** //	Aula 2 - Repositórios
