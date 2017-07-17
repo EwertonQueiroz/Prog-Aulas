@@ -1,5 +1,6 @@
 package controller;
 
+import aula15.br.ufrpe.deinfo.dados.ExceptionContaNaoEncontrada;
 import model.RepositorioContas;
 
 public class CadastroConta {
@@ -14,30 +15,28 @@ public class CadastroConta {
 			if (!(this.contas.existe(conta.getNumero())))
 				this.contas.inserir(conta);
 			else
-				System.out.println("Conta já cadastrada!");
+				System.out.println("Conta jï¿½ cadastrada!");
 		else
-			System.out.println("Conta inválida.");
+			System.out.println("Conta invï¿½lida.");
 	}
 
-	public ContaAbstrata procurar (String numero) {
+	public ContaAbstrata procurar (String numero) throws ExceptionContaNaoEncontrada {
 		return this.contas.procurar(numero);
 	}
 
-	public void remover (String numero) {
-		if (this.contas.existe(numero))
-			this.contas.remover(numero);
-		else
-			System.out.println("Conta não encontrada.");
+	public void remover (String numero) throws ExceptionContaNaoEncontrada {
+		this.contas.remover(numero);
+			
 	}
 
-	public void atualizar (ContaAbstrata conta) {
+	public void atualizar (ContaAbstrata conta) throws ExceptionContaNaoEncontrada {
 		if (conta != null)
 			if (this.contas.existe(conta.getNumero()))
 				this.contas.atualizar(conta);
 			else
-				System.out.println("Conta não encontrada.");
+				System.out.println("Conta nï¿½o encontrada.");
 		else
-			System.out.println("Conta inválida.");
+			System.out.println("Conta invï¿½lida.");
 	}
 
 }

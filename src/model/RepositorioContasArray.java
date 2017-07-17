@@ -1,8 +1,9 @@
 package model;
 
+import aula15.br.ufrpe.deinfo.dados.ExceptionContaNaoEncontrada;
 import controller.ContaAbstrata;
 
-public class RepositorioContasArray implements RepositorioContas{
+public class RepositorioContasArray implements RepositorioContas {
 	
 	private ContaAbstrata[] contas;
 	private int indice;
@@ -15,7 +16,7 @@ public class RepositorioContasArray implements RepositorioContas{
 		this.indice = 0;
 	}
 	
-	private int getIndice (String numero) {
+	private int getIndice (String numero) throws ExceptionContaNaoEncontrada {
 		int aux = -1;
 		
 		for (int i = 0; i < this.indice; i++) { 
@@ -23,6 +24,12 @@ public class RepositorioContasArray implements RepositorioContas{
 				aux = i;
 				break;
 			}
+		}
+		
+		if (aux == -1) {
+			ExceptionContaNaoEncontrada e = new ExceptionContaNaoEncontrada(numero);
+			
+			throw e;
 		}
 		
 		return aux;
@@ -37,7 +44,7 @@ public class RepositorioContasArray implements RepositorioContas{
 		RepositorioContasArray.saldo_total += conta.getSaldo();
 	}
 	
-	public ContaAbstrata procurar (String numero) {
+	public ContaAbstrata procurar (String numero) throws ExceptionContaNaoEncontrada {
 		ContaAbstrata aux = null;
 		
 		for (int i = 0; i < this.indice; i++) {
@@ -47,21 +54,28 @@ public class RepositorioContasArray implements RepositorioContas{
 			}
 		}
 		
+		if (aux == null) {
+			ExceptionContaNaoEncontrada e;
+			e = new ExceptionContaNaoEncontrada(numero);
+			
+			throw e;
+		}
+		
 		return aux;
 	}
 	
-	public void remover (String numero) {
+	public void remover (String numero) throws ExceptionContaNaoEncontrada {
 		int aux = this.getIndice(numero);
 		this.contas[aux] = null;
 	}
 	
-	public void atualizar (ContaAbstrata conta) {
+	public void atualizar (ContaAbstrata conta) throws ExceptionContaNaoEncontrada {
 		int aux = this.getIndice(conta.getNumero());
 		if (aux != -1)
 			this.contas[aux] = conta;
 	}
 	
-	public boolean existe (String numero) {
+	public boolean existe (String numero) throws ExceptionContaNaoEncontrada {
 		if (this.procurar(numero) != null)
 			return true;
 		

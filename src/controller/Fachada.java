@@ -1,5 +1,6 @@
 package controller;
 
+import aula15.br.ufrpe.deinfo.dados.ExceptionContaNaoEncontrada;
 import model.RepositorioContas;
 import model.RepositorioContasArray;
 
@@ -23,11 +24,11 @@ public class Fachada {
 		this.contas.inserir(conta);
 	}
 	
-	public ContaAbstrata procurar (String numero) {
+	public ContaAbstrata procurar (String numero) throws ExceptionContaNaoEncontrada {
 		return this.contas.procurar(numero);
 	}
 	
-	public void remover (String numero) {
+	public void remover (String numero) throws ExceptionContaNaoEncontrada {
 		this.contas.remover(numero);
 	}
 	
