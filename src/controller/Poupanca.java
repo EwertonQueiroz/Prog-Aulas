@@ -1,4 +1,4 @@
-package poo;
+package controller;
 
 public class Poupanca extends Conta {
 	private final double rendimento = 0.006;

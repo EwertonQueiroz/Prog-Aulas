@@ -1,4 +1,6 @@
-package poo;
+package controller;
+
+import model.RepositorioContas;
 
 public class CadastroConta {
 	private RepositorioContas contas;

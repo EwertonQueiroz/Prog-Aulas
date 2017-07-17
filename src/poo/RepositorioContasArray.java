@@ -1,5 +1,8 @@
 package poo;
 
+import controller.Conta;
+import controller.ContaAbstrata;
+
 public class RepositorioContasArray implements RepositorioContas{
 	
 	private ContaAbstrata[] contas;

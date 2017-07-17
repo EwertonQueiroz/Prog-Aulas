@@ -1,6 +1,6 @@
-package controller;
+package model;
 
-import model.ContaAbstrata;
+import controller.ContaAbstrata;
 
 public class RepositorioListaContas implements RepositorioContas {
 	
@@ -22,7 +22,6 @@ public class RepositorioListaContas implements RepositorioContas {
 			this.proximo.inserir(conta);
 	}
 
-	@Override
 	public ContaAbstrata procurar (String numero) {
 		if (this.conta == null)
 			return null;
@@ -76,5 +75,5 @@ public class RepositorioListaContas implements RepositorioContas {
 		
 		return this.proximo.existe(numero);
 	}
-	
+
 }

@@ -1,4 +1,7 @@
-package poo;
+package controller;
+
+import model.RepositorioContas;
+import model.RepositorioContasArray;
 
 public class Fachada {
 	private CadastroConta contas;

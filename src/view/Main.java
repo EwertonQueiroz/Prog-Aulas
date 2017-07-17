@@ -1,10 +1,10 @@
 package view;
 
-import controller.RepositorioListaContas;
-import model.Conta;
-import model.ContaAbstrata;
-import model.ContaBonificada;
-import model.Poupanca;
+import controller.Conta;
+import controller.ContaAbstrata;
+import controller.ContaBonificada;
+import controller.Poupanca;
+import model.RepositorioListaContas;
 
 public class Main {
 

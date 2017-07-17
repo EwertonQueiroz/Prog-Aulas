@@ -1,6 +1,6 @@
-package controller;
+package model;
 
-import model.ContaAbstrata;
+import controller.ContaAbstrata;
 
 public interface RepositorioContas {
 	

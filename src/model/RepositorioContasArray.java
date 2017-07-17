@@ -1,7 +1,6 @@
-package controller;
+package model;
 
-import model.Conta;
-import model.ContaAbstrata;
+import controller.ContaAbstrata;
 
 public class RepositorioContasArray implements RepositorioContas{
 	
@@ -12,7 +11,7 @@ public class RepositorioContasArray implements RepositorioContas{
 	private static final int TAMANHO = 100;
 	
 	public RepositorioContasArray () {
-		this.contas = new Conta[TAMANHO];
+		this.contas = new ContaAbstrata[TAMANHO];
 		this.indice = 0;
 	}
 	
@@ -42,7 +41,6 @@ public class RepositorioContasArray implements RepositorioContas{
 		ContaAbstrata aux = null;
 		
 		for (int i = 0; i < this.indice; i++) {
-			//System.out.println(conta.getNumero());
 			if (this.contas[i].getNumero().equalsIgnoreCase(numero)) {
 				aux = this.contas[i];
 				break;
@@ -70,6 +68,7 @@ public class RepositorioContasArray implements RepositorioContas{
 		else
 			return false;
 	}
+	
 	// Construir toString por StringBuilder!!
 	public String toString () {
 		String s = "Repositório Contas Array:\n\t[";

@@ -1,5 +1,7 @@
 package poo;
 
+import controller.ContaAbstrata;
+
 public interface RepositorioContas {
 	
 	public void inserir (ContaAbstrata conta);
