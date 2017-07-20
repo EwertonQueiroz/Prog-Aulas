@@ -20,7 +20,7 @@ public class Fachada {
 		return Fachada.instance;
 	}
 	
-	public void inserir (ContaAbstrata conta) {
+	public void inserir (ContaAbstrata conta) throws ExceptionContaNaoEncontrada {
 		this.contas.inserir(conta);
 	}
 	

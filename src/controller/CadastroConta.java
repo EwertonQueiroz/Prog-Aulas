@@ -10,7 +10,7 @@ public class CadastroConta {
 		this.contas = repositorio;
 	}
 
-	public void inserir (ContaAbstrata conta) {
+	public void inserir (ContaAbstrata conta) throws ExceptionContaNaoEncontrada {
 		if (conta != null)
 			if (!(this.contas.existe(conta.getNumero())))
 				this.contas.inserir(conta);
