@@ -8,12 +8,20 @@ public class RepositorioContasArray implements RepositorioContas {
 	private ContaAbstrata[] contas;
 	private int indice;
 	private static double saldo_total;
+	private static RepositorioContasArray instance;
 	
 	private static final int TAMANHO = 100;
 	
 	public RepositorioContasArray () {
 		this.contas = new ContaAbstrata[TAMANHO];
 		this.indice = 0;
+	}
+	
+	public static RepositorioContasArray getInstance () {
+		if (RepositorioContasArray.instance == null)
+			RepositorioContasArray.instance = new RepositorioContasArray();
+		
+		return RepositorioContasArray.instance;
 	}
 	
 	private int getIndice (String numero) throws ExceptionContaNaoEncontrada {
